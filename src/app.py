@@ -1,13 +1,11 @@
 from flask import Flask
-from flask_restx import Api, Resource
+from extensions import api
+
+from views.process import ns
 
 app = Flask(__name__)
-api = Api(app, title="Desafio Jus API")
-
-@api.route('/hello')
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
+api.init_app(app)
+api.add_namespace(ns)
 
 if __name__ == '__main__':
     app.run(debug = True, host='0.0.0.0', port=8000)

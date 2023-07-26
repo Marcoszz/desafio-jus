@@ -1,7 +1,6 @@
 services:
   web: 
     build:
-      context: src
       target: builder
     # flask requires SIGINT to stop gracefully
     # (default stop signal from Compose is SIGTERM)

@@ -1,7 +1,7 @@
 from flask import Flask
 from extensions import api
 
-from views.process import ns
+from views import ns
 
 app = Flask(__name__)
 api.init_app(app)

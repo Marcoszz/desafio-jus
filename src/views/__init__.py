@@ -6,7 +6,7 @@ sys.path.append("utils")
 from flask_restx import Resource, Namespace, abort
 from models import process_input_model
 from services.process import process_service
-from exceptions import ProcessNotFromExpectedAreaException, ProcessNotFromStateJusticeSegmentException
+from exceptions import ProcessNotFromExpectedAreaException, ProcessNotFromStateJusticeSegmentException, ProcessNotFoundException
 
 ns = Namespace("processo", description="Rotas relacionadas ao processo.")
 
@@ -27,10 +27,11 @@ class Process(Resource):
         try:
             return {"response": process_service.get_process(payload["process"])}
         except Exception as e:
-            if type(e) == type(ProcessNotFromExpectedAreaException()) 
-            or type(e) == type(ProcessNotFromStateJusticeSegmentException()):
+            if type(e) == type(ProcessNotFromExpectedAreaException()) or type(e) == type(ProcessNotFromStateJusticeSegmentException()):
                 abort(400, str(e))
-            
+            if type(e) == type(ProcessNotFoundException()):
+                abort(404, str(e))
+
             abort(500, str(e))
 
 

@@ -4,6 +4,9 @@ from extensions import api
 from views import ns
 
 app = Flask(__name__)
+
+app.config['ERROR_INCLUDE_MESSAGE'] = False
+
 api.init_app(app)
 api.add_namespace(ns)
 

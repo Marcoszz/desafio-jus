@@ -22,13 +22,13 @@ class SeleniumService:
     
     def get_process_urls(self, court_urls, process):
         process_urls = []
-        formated_process = self.format_process_to_search(process)
+        process_formatted = self.format_process_to_search(process)
 
         try:
             self.open_browser()
 
-            process_urls.append(self.handle_process_search_action(court_urls[0], formated_process))
-            process_urls.append(self.handle_process_search_action(court_urls[1], formated_process, True))    
+            process_urls.append(self.handle_process_search_action(court_urls[0], process_formatted))
+            process_urls.append(self.handle_process_search_action(court_urls[1], process_formatted, True))    
 
         except Exception as e:
             print(e)
@@ -59,13 +59,12 @@ class SeleniumService:
         return self.browser.current_url
 
     def format_process_to_search(self, process):
-        splited_process = process.split("-")
-
-        number = splited_process[0]
-        rest = splited_process[1].split(".")
+        process_splitted = process.split("-")
+        process_number = process_splitted[0]
+        process_identifiers = process_splitted[1].split(".")
         
-        identifiers = [rest[i] for i in range(len(rest)) if i not in [2, 3]]
+        identifiers_without_tr = [process_identifiers[i] for i in range(len(process_identifiers)) if i not in [2, 3]]
 
-        return number + ''.join(identifiers)
+        return process_number + ''.join(identifiers_without_tr)
 
 selenium_service = SeleniumService()

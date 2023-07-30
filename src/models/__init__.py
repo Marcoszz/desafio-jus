@@ -13,6 +13,6 @@ process_input_model = api.model("ProcessInput", {
         pattern=PROCESS_FORMAT, 
         example="0710802-55.2018.8.02.0001", 
         required=True,
-        description="Número do processo"
+        description="Number of the process"
         )
 })

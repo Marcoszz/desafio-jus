@@ -28,8 +28,7 @@ class SeleniumService:
             self.open_browser()
 
             process_urls.append(self.handle_process_search_action(court_urls[0], formated_process))
-            process_urls.append(self.handle_process_search_action(court_urls[1], formated_process, True))
-                
+            process_urls.append(self.handle_process_search_action(court_urls[1], formated_process, True))    
 
         except Exception as e:
             print(e)
@@ -59,12 +58,10 @@ class SeleniumService:
         WebDriverWait(self.browser, 5).until(ec.visibility_of_element_located(('xpath', '//*[@id="numeroProcesso"]')))
         return self.browser.current_url
 
-
     def format_process_to_search(self, process):
         splited_process = process.split("-")
 
         number = splited_process[0]
-
         rest = splited_process[1].split(".")
         
         identifiers = [rest[i] for i in range(len(rest)) if i not in [2, 3]]

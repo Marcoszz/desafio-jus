@@ -25,7 +25,7 @@ class Process(Resource):
         payload = ns.payload
 
         try:
-            return {"response": process_service.get_process(payload["process"])}
+            return {"data": process_service.get_process(payload["process"])}
         except Exception as e:
             if type(e) == type(ProcessNotFromExpectedAreaException()) or type(e) == type(ProcessNotFromStateJusticeSegmentException()):
                 abort(400, str(e))

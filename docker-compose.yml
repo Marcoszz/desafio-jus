@@ -25,7 +25,8 @@ services:
       - '8000:8000'
     volumes:
       - './src:/src'
-      - './.env:/src/.env'
+    env_file:
+      - .env
     networks:
       - conn
     depends_on:

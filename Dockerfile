@@ -3,13 +3,13 @@ FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
+WORKDIR /src
 
-COPY requirements.txt /app
+COPY requirements.txt /src
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirements.txt
 
-COPY . /app
+COPY . /src
 
 ENTRYPOINT ["python3"]
 CMD ["app.py"]

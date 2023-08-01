@@ -6,6 +6,9 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /src
 
 COPY requirements.txt /src
+
+RUN apk update && apk add --no-cache build-base libffi-dev openssl-dev
+
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirements.txt
 

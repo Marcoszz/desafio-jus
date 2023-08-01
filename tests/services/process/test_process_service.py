@@ -1,5 +1,6 @@
 import sys
-sys.path.append("utils")
+sys.path.append('utils')
+sys.path.append('..')
 
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
@@ -21,7 +22,7 @@ class TestProcessService(TestCase):
         )
 
         run_mock.return_value = stdout_mock
-        selenium_service_mock.get_process_urls.return_value = ['url']
+        selenium_service_mock.get_process_urls.return_value = ['EXAMPLE_VALUE']
         process = '0710802-55.2018.8.02.0001'
 
         with patch.object(ProcessService, 'get_court_urls') as get_court_urls_mock:

@@ -2,6 +2,5 @@ flask
 flask-restx
 scrapy
 selenium
-pytest-flask
+pytest
 python-dotenv
-pytest-mock

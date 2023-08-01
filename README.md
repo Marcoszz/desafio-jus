@@ -32,4 +32,7 @@ Para usar siga estas etapas:
 
 Para testar a aplicação:
 
-- Com a aplicação rodando, execute ```make up```
+- Com a aplicação rodando, execute ```make test```
+
+
+Em caso de dúvidas ou problemas para executar, por favor entrar em contato por: marcos.mpdcl@gmail.com ou WhatsApp

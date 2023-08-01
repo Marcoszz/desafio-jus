@@ -5,20 +5,22 @@ from flask import Flask
 from extensions import api
 from views import ns
 import crawler
-from services.selenium import SeleniumService
 
 import pytest
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope='module')
 def app():
     app = Flask(__name__)
+    app.config.update({
+        "TESTING": True,
+        "DEBUG": False
+    })
+
     api.init_app(app)
     api.add_namespace(ns)
 
-    return app
+    yield app
 
-@pytest.fixture(scope="module")
-def selenium():
-    selenium = SeleniumService()
-    
-    return selenium
+@pytest.fixture(scope='module')
+def client(app):
+    return app.test_client()

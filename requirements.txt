@@ -4,3 +4,4 @@ scrapy
 selenium
 pytest-flask
 python-dotenv
+pytest-mock

@@ -32,7 +32,7 @@ class ProcessService:
         call = run(command, stdout=PIPE, stderr=PIPE, universal_newlines=True)
         print(call.stderr, "\n")
         
-        return loads(call.stdout)
+        return loads(call.stdout.strip())
     
     def get_court_urls(self, process):
         region = process.split('-')[1].split('.')[3]

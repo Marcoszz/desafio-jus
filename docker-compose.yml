@@ -25,6 +25,7 @@ services:
       - '8000:8000'
     volumes:
       - './src:/src'
+      - './tests:/tests'
     env_file:
       - .env
     networks:

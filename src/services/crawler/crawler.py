@@ -20,7 +20,7 @@ class Crawler(scrapy.Spider):
                 'class': response.xpath('//span[@id="classeProcesso"]/text() | //div[@id="classeProcesso"]/span/text()').get(),
                 'area': response.xpath('//div[@id="areaProcesso"]/span/text()').get(),
                 'subject': response.xpath('//span[@id="assuntoProcesso"]/text() | //div[@id="assuntoProcesso"]/span/text()').get(),
-                'distribution_data': response.xpath('//div[@id="dataHoraDistribuicaoProcesso"]/text()').get(),
+                'distribution_date': response.xpath('//div[@id="dataHoraDistribuicaoProcesso"]/text()').get(),
                 'judge': response.xpath('//span[@id="juizProcesso"]/text()').get(),
                 'share_value': response.xpath('//div[@id="valorAcaoProcesso"]/text() | //div[@id="valorAcaoProcesso"]/span/text()').get(),
                 'process_parts': [],

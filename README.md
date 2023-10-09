@@ -2,8 +2,6 @@
 
 O teste resume-se na construção de uma API que retorne os dados de um processo (em todos os graus) regido pelo TJAL ou TJCE. 
 
-Para mais informações visite [aqui](https://docs.google.com/document/d/12TesK4PrzUR9HGt30bY7npx9fTKHo0JIQEjRpPO6hWU/edit?usp=sharing)
-
 ## Setup
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
